@@ -21,10 +21,10 @@ public class AnimeController {
     @PostMapping
     public ResponseEntity<Void> salvarAnime(
             @RequestBody Animes animes,
-            @RequestHeader("Authorization") String authHeader) { // ✅ pega o token
+            @RequestHeader("Authorization") String authHeader) { 
 
         String token = authHeader.substring(7);
-        String email = jwtUtil.extrairEmail(token); // ✅ extrai o email
+        String email = jwtUtil.extrairEmail(token);
 
         animeService.salvarAnime(animes, email);
         return ResponseEntity.ok().build();

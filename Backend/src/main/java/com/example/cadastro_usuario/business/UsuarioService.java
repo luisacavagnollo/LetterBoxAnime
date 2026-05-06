@@ -16,7 +16,7 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        if (!encoder.matches(senha, usuario.getSenha())) { // ✅ era .equals() antes
+        if (!encoder.matches(senha, usuario.getSenha())) { 
             throw new RuntimeException("Senha inválida");
         }
 
