@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f3f3f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.feed-page {
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 70px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 95px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.topbar h1 {
+  color: #6c38ff;
+  font-size: 28px;
+}
+
+.topbar nav {
+  display: flex;
+  gap: 25px;
+}
+
+.topbar nav a {
+  text-decoration: none;
+  color: #777;
+  font-weight: bold;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-right input {
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  background: #f0f0f0;
+  width: 220px;
+}
+
+.user-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #6c38ff;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.feed-posts {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.post-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.post-user {
+  margin-bottom: 15px;
+}
+
+.post-user span {
+  display: block;
+  color: #888;
+  font-size: 13px;
+}
+
+.post-content {
+  display: flex;
+  gap: 20px;
+}
+
+.post-content img {
+  width: 170px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.post-info h2 {
+  color: #6c38ff;
+  margin-bottom: 12px;
+}
+
+.post-info p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+}
+
+.tags span {
+  background: #eee5ff;
+  color: #6c38ff;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.floating-add {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: none;
+  background: #6c38ff;
+  color: white;
+  font-size: 34px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(108, 56, 255, 0.35);
+}
