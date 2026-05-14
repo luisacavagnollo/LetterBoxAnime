@@ -42,7 +42,7 @@ Um aplicativo full-stack para cadastro e gerenciamento de animes, inspirado no L
    ./mvnw spring-boot:run
    ```
 
-   O backend estará rodando em `http://localhost:8080`.
+   O backend estará rodando em `http://localhost:8081`.
 
 ### Frontend
 
