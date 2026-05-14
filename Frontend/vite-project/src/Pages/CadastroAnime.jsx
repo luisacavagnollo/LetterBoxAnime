@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./CadastroAnime.css";
-import api from "./services/api";
-import { uploadImagem } from "./services/cloudinary";
+import "../style/CadastroAnime.css";
+import api from "../services/api";
+import { uploadImagem } from "../services/cloudinary";
 import { useNavigate } from "react-router-dom";
 
 function CadastroAnime() {
@@ -9,7 +9,7 @@ function CadastroAnime() {
     titulo: "",
     categoria: "",
     imagemUrl: "",
-    descricao: ""
+    descricao: "",
   });
 
   const [preview, setPreview] = useState("");
@@ -19,7 +19,7 @@ function CadastroAnime() {
   function handleChange(e) {
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   }
 
@@ -28,9 +28,9 @@ function CadastroAnime() {
     if (file) {
       setCarregando(true);
       try {
-        const url = await uploadImagem(file); 
+        const url = await uploadImagem(file);
         setPreview(url);
-        setForm({ ...form, imagemUrl: url }); 
+        setForm({ ...form, imagemUrl: url });
       } catch (error) {
         alert("Erro ao fazer upload da imagem");
         console.error(error);
@@ -53,13 +53,12 @@ function CadastroAnime() {
 
       await api.post("/animes", form, {
         headers: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       alert("Anime cadastrado com sucesso!");
       navigate("/Feed");
-
     } catch (error) {
       console.error(error);
       alert("Erro ao cadastrar anime");
@@ -72,7 +71,6 @@ function CadastroAnime() {
 
       <form onSubmit={handleSubmit}>
         <div className="form-fields">
-
           <div className="form-group">
             <label>Título:</label>
             <input
@@ -117,17 +115,12 @@ function CadastroAnime() {
             ) : (
               <span>Selecione uma imagem de capa</span>
             )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImagem}
-            />
+            <input type="file" accept="image/*" onChange={handleImagem} />
           </div>
 
           <button type="submit" disabled={carregando}>
             {carregando ? "Aguarde..." : "Cadastrar"}
           </button>
-
         </div>
       </form>
     </div>

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import "./TelaCadastro.css"; 
-import api from "./services/api";
+import "../style/TelaCadastro.css";
+import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 function TelaLogin() {
   const [form, setForm] = useState({
     email: "",
-    senha: ""
+    senha: "",
   });
 
   const [erro, setErro] = useState("");
@@ -66,11 +66,7 @@ function TelaLogin() {
 
       <p>
         Não tem conta?{" "}
-        <span
-         onClick={() => navigate("/TelaCadastro")}
-        >
-          Cadastre-se
-        </span>
+        <span onClick={() => navigate("/TelaCadastro")}>Cadastre-se</span>
       </p>
     </div>
   );

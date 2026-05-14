@@ -1,5 +1,5 @@
-import "./Feed.css";
-import api from "./services/api";
+import "../style/Feed.css";
+import api from "../services/api";
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -9,16 +9,16 @@ function Feed() {
   const [search, setSearch] = useState("");
 
   const carregarAnimes = useCallback(async () => {
-  try {
-    const token = localStorage.getItem("token");
-    const response = await api.get("/animes/todos", {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    setAnimes(response.data);
-  } catch (error) {
-    console.error("Erro ao buscar animes:", error);
-  }
-}, []);
+    try {
+      const token = localStorage.getItem("token");
+      const response = await api.get("/animes/todos", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setAnimes(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar animes:", error);
+    }
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -27,10 +27,10 @@ function Feed() {
   }, []);
 
   const animesFiltrados = useMemo(() => {
-  return animes.filter((anime) =>
-    anime.titulo.toLowerCase().includes(search.toLowerCase())
-  );
-}, [animes, search]);
+    return animes.filter((anime) =>
+      anime.titulo.toLowerCase().includes(search.toLowerCase()),
+    );
+  }, [animes, search]);
 
   function handleLogout() {
     localStorage.removeItem("token");
@@ -50,7 +50,7 @@ function Feed() {
 
           <button
             className="user-btn"
-            onClick={handleLogout} // 
+            onClick={handleLogout} //
           >
             👤
           </button>
@@ -59,7 +59,6 @@ function Feed() {
 
       <main className="layout">
         <section className="feed-posts">
-
           {animes.length === 0 ? (
             <p>Nenhum anime cadastrado ainda.</p>
           ) : (
@@ -92,7 +91,6 @@ function Feed() {
               </div>
             ))
           )}
-
         </section>
       </main>
 

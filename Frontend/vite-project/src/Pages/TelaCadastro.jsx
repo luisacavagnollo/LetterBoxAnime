@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./TelaCadastro.css";
-import api from "./services/api";
+import "../style/TelaCadastro.css";
+import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
